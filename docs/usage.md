@@ -3,7 +3,7 @@
 ## 1. Initialize a target project
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/init_llm_wiki.py --project-root /path/to/project
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py init --project-root /path/to/project
 ```
 
 ## 2. Put source material under `raw/_sources/`
@@ -18,19 +18,19 @@ If a source directory also contains screenshots, charts, or diagrams, the model 
 ## 3. Rebuild queue
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --rebuild-queue
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --rebuild-queue
 ```
 
 ## 4. Run Codex one source at a time
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once
 ```
 
 ## 5. Run continuously
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-all
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-all
 ```
 
 ## 6. Useful controls
@@ -38,20 +38,22 @@ python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /
 Dry-run next item:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once --dry-run
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once --dry-run
 ```
 
 Retry failed items:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once --retry-failed
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once --retry-failed
 ```
 
 Process one specific source:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once --only-source-id example-source
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once --only-source-id example-source
 ```
+
+The older script entrypoints remain available for compatibility, but the unified `llm-wiki` CLI should be used for new usage examples.
 
 ## Writing expectations
 

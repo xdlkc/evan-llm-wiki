@@ -22,7 +22,7 @@ The toolkit is generic. It assumes only that a target project has source materia
 1. Initialize a target project:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/init_llm_wiki.py --project-root /path/to/project
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py init --project-root /path/to/project
 ```
 
 2. Put source material under one of these defaults:
@@ -33,23 +33,25 @@ python /Users/lkc/Code/evan-llm-wiki/scripts/init_llm_wiki.py --project-root /pa
 3. Rebuild the queue:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --rebuild-queue
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --rebuild-queue
 ```
 
 4. Dry-run the next item:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once --dry-run
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once --dry-run
 ```
 
 5. Process one item:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-once
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-once
 ```
 
 6. Process all pending items:
 
 ```bash
-python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_runner.py --project-root /path/to/project --run-all
+python /Users/lkc/Code/evan-llm-wiki/scripts/llm_wiki_cli.py run --project-root /path/to/project --run-all
 ```
+
+Legacy compatibility wrappers still exist for `scripts/init_llm_wiki.py` and `scripts/llm_wiki_runner.py`, but the unified `llm-wiki` CLI is the preferred entrypoint.
