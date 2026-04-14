@@ -64,11 +64,11 @@ def write_if_missing(path: Path, content: str, force: bool) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Initialize a target project for generic LLM wiki maintenance")
     parser.add_argument("--project-root", required=True, help="target project root")
     parser.add_argument("--force", action="store_true", help="overwrite existing scaffold files")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     project_root = Path(args.project_root).expanduser().resolve()
     project_root.mkdir(parents=True, exist_ok=True)

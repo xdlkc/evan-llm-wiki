@@ -316,7 +316,7 @@ def run_once(
     return completed.returncode
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="One-source-at-a-time manual wiki runner for Codex")
     parser.add_argument("--project-root", default=".", help="target project root")
     parser.add_argument("--source-root", default=str(DEFAULT_SOURCE_ROOT), help="source root relative to project root")
@@ -332,7 +332,7 @@ def main() -> int:
     parser.add_argument("--only-source-id", default=None, help="process only the specified source_id")
     parser.add_argument("--model", default=None, help="optional codex model override")
     parser.add_argument("--codex-arg", action="append", default=[], help="extra arg passed to `codex exec`, can be repeated")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     project_root = Path(args.project_root).expanduser().resolve()
     source_root = Path(args.source_root)
